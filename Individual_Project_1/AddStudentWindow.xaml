@@ -1,0 +1,140 @@
+﻿<Window x:Class="Individual_Project_1.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:Individual_Project_1"
+        mc:Ignorable="d"
+        Title="AddStudentWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Window.DataContext>
+        <local:AddStudentWindowVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+    <Border Background="#212529" CornerRadius="30" BorderBrush="Black" BorderThickness="2" MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--#region closebuttons-->
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0 15 15 0">
+                <Button Click="Button_Click" Style="{StaticResource TopButton}">
+                    <Icon:PackIconMaterial Kind="WindowMinimize" Height="15" Width="15"/>
+                </Button>
+                <Button Click="Button_Click_1" Style="{StaticResource TopButton}">
+                    <Icon:PackIconMaterial Kind="WindowMaximize" Height="15" Width="15"/>
+                </Button>
+                <Button Click="Button_Click_2" Style="{StaticResource TopButton}">
+                    <Icon:PackIconMaterial Kind="close" Height="15" Width="15"/>
+                </Button>
+            </StackPanel>
+            <!--#endregion-->
+
+            <!--Page title-->
+            <TextBlock Text="Add New Student" Grid.Row="1" FontSize="25" FontWeight="SemiBold" Margin="0 5 0 15" HorizontalAlignment="Center" Foreground="#dbdbdb"/>
+
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--first name-->
+                <StackPanel Margin="20 10 10 0 " Grid.Column="0" Grid.Row="0">
+                    <TextBlock Text="First Name" Foreground="#97a5b4" FontSize="20" Margin="0 0 0 8"/>
+                    <Grid>
+                        <TextBlock Margin="18 0" VerticalAlignment="Center" Foreground="#E0DDDA" Opacity="0.5" IsHitTestVisible="False" Panel.ZIndex="1" FontSize="20" Text="Enter First Name" Visibility="{Binding ElementName=fName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+                        <TextBox Style="{StaticResource textBoxinput}" x:Name="fName" Text="{Binding FName}"/>
+                    </Grid>
+                </StackPanel>
+
+                <!--last name-->
+                <StackPanel Margin="20 10 10 0 " Grid.Column="1" Grid.Row="0">
+                    <TextBlock Text="Last Name" Foreground="#97a5b4" FontSize="20" Margin="0 0 0 8"/>
+                    <Grid>
+                        <TextBlock Margin="18 0" VerticalAlignment="Center" Foreground="#E0DDDA" Opacity="0.5" IsHitTestVisible="False" Panel.ZIndex="1" FontSize="20" Text="Enter Last Name" Visibility="{Binding ElementName=lName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+                        <TextBox Style="{StaticResource textBoxinput}" x:Name="lName" Text="{Binding LName}"/>
+                    </Grid>
+                </StackPanel>
+
+                <!--address-->
+                <StackPanel Margin="20 10 10 0 " Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                    <TextBlock Text="Address" Foreground="#97a5b4" FontSize="20" Margin="0 0 0 8"/>
+                    <Grid>
+                        <TextBlock Margin="18 0" VerticalAlignment="Center" Foreground="#E0DDDA" Opacity="0.5" IsHitTestVisible="False" Panel.ZIndex="1" FontSize="20" Text="Enter Address" Visibility="{Binding ElementName=address, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+                        <TextBox Style="{StaticResource textBoxinput}" x:Name="address" Text="{Binding Addr}"/>
+                    </Grid>
+                </StackPanel>
+
+                <!--dob-->
+                <StackPanel Margin="20 10 10 0 " Grid.Column="0" Grid.Row="2">
+                    <TextBlock Text="Date of Birth" Foreground="#97a5b4" FontSize="20" Margin="0 0 0 8"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <DatePicker Style="{StaticResource DatePickerStyle2}" x:Name="datePicker"  Grid.Column="0" Visibility="Hidden" HorizontalContentAlignment="Center" SelectedDate="{Binding DatePickerDate}" HorizontalAlignment="Right" Margin="55 -15"/>
+                        <Button x:Name="cal" Margin="10,0,0,0" Click="dob" Grid.Column="1" Style="{StaticResource TopButton}">
+                            <Icon:PackIconMaterial Kind="Calendar" Height="20" Width="20" Style="{StaticResource gridButtonIcon}"/>
+                        </Button>
+                        <Border Grid.Row="2" CornerRadius="20 0 0 20" BorderBrush="#3E434A" Background="#3E434A" Padding="15 8 0 0" Height="45" Margin="5 5 0 0">
+                            <TextBlock Text="{Binding SelectedDate, ElementName=datePicker, StringFormat='{}{0:d}'}" FontSize="20" Foreground="#dbdbdb"/>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+
+                <!--telephone-->
+                <StackPanel Margin="20 10 10 0 " Grid.Column="1" Grid.Row="2">
+                    <TextBlock Text="Telephone" Foreground="#97a5b4" FontSize="20" Margin="0 0 0 8"/>
+                    <Grid>
+                        <TextBlock Margin="18 0" VerticalAlignment="Center" Foreground="#E0DDDA" Opacity="0.5" IsHitTestVisible="False" Panel.ZIndex="1" FontSize="20" Text="Enter Telephone (xxx-xxxxxxx)" Visibility="{Binding ElementName=tel, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+                        <TextBox Style="{StaticResource textBoxinput}" x:Name="tel" Text="{Binding Tel}"/>
+                    </Grid>
+                </StackPanel>
+
+                <!--GPA-->
+                <StackPanel Margin="20 10 10 0 " Grid.Column="0" Grid.Row="3">
+                    <TextBlock Text="GPA" Foreground="#97a5b4" FontSize="20" Margin="0 0 0 8"/>
+                    <Grid>
+                        <TextBlock Margin="18 0" VerticalAlignment="Center" Foreground="#E0DDDA" Opacity="0.5" IsHitTestVisible="False" Panel.ZIndex="1" FontSize="20" Text="Enter GPA (x.xxxx)" Visibility="{Binding ElementName=gpa, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
+                        <TextBox Style="{StaticResource textBoxinput}" x:Name="gpa" Text="{Binding Gpa}" GotMouseCapture="GotMouseCapture"/>
+                    </Grid>
+                </StackPanel>
+
+                <!--Avatar-->
+                <StackPanel Margin="20 10 10 0 " Grid.Column="1" Grid.Row="3">
+                    <TextBlock Text="Avatar Color" Foreground="#97a5b4" FontSize="20" Margin="0 0 0 8"/>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Style="{StaticResource radio}" x:Name="greenButton"  GroupName="ColorGroup" VerticalContentAlignment="Center" Margin="5 0" Command="{Binding setColorCommand}" CommandParameter="#FF008000">
+                            <Border Height="40" Width="40" CornerRadius="10" BorderBrush="Green" BorderThickness="20" Margin="5 10"/>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource radio}" x:Name="redButton" GroupName="ColorGroup" VerticalContentAlignment="Center" Margin="5 0" Command="{Binding setColorCommand}" CommandParameter="#FFFF0000">
+                            <Border Height="40" Width="40" CornerRadius="10" BorderBrush="Red" BorderThickness="20" Margin="5 10"/>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource radio}" x:Name="blueButton" GroupName="ColorGroup" VerticalContentAlignment="Center" Margin="5 0" Command="{Binding setColorCommand}" CommandParameter="#FF0000FF">
+                            <Border Height="40" Width="40" CornerRadius="10" BorderBrush="Blue" BorderThickness="20" Margin="5 10"/>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource radio}" x:Name="dMButton"  GroupName="ColorGroup" VerticalContentAlignment="Center" Margin="5 0" Command="{Binding setColorCommand}" CommandParameter="#FF8B008B">
+                            <Border Height="40" Width="40" CornerRadius="10" BorderBrush="DarkMagenta" BorderThickness="20" Margin="5 10"/>
+                        </RadioButton>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <!--add student button-->
+            <Button Style="{StaticResource addStdButton}" Grid.Row="3" Margin="20" HorizontalAlignment="Center" Command="{Binding addStudentCommand}" Click="Button_Click_3" Content="Add Student" FontSize="15" FontWeight="SemiBold"/>
+        </Grid>
+    </Border>
+    
+</Window>

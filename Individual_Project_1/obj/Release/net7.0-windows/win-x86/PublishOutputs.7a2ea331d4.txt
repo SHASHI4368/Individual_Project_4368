@@ -1,0 +1,7 @@
+E:\ruhuna acadamic\SEM 3\individual\Individual_Project_1.pdb
+E:\ruhuna acadamic\SEM 3\individual\D3DCompiler_47_cor3.dll
+E:\ruhuna acadamic\SEM 3\individual\PenImc_cor3.dll
+E:\ruhuna acadamic\SEM 3\individual\PresentationNative_cor3.dll
+E:\ruhuna acadamic\SEM 3\individual\vcruntime140_cor3.dll
+E:\ruhuna acadamic\SEM 3\individual\wpfgfx_cor3.dll
+E:\ruhuna acadamic\SEM 3\individual\Individual_Project_1.exe

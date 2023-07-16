@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "t2cHBe07d3V/1mrk6F85eTUIcoujGpxUxezvegtmmt3UP4iNLQ/lGAM0K9D3w9ISpEh5OiBN2GvIdYURe1E13A==",
+  "success": true,
+  "projectFilePath": "E:\\ruhuna acadamic\\SEM 3\\EE3250 -  GUI Programming\\End Projects\\Individual_Project_1\\Individual_Project_1\\Individual_Project_1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shash\\.nuget\\packages\\communitytoolkit.mvvm\\8.1.0\\communitytoolkit.mvvm.8.1.0.nupkg.sha512",
+    "C:\\Users\\shash\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
+  ],
+  "logs": []
+}
