@@ -143,7 +143,7 @@ namespace Individual_Project_1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Individual_Project_1;component/addstudentwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Individual_Project_1;V1.0.0.0;component/addstudentwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AddStudentWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

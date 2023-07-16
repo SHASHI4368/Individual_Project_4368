@@ -55,7 +55,7 @@ namespace Individual_Project_1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Individual_Project_1;component/deletewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Individual_Project_1;V1.0.0.0;component/deletewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\DeleteWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
